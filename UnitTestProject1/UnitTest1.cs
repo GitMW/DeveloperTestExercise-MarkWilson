@@ -17,7 +17,7 @@ namespace UnitTestProject1
             ThirdPartyTools.FileDetails temp = new ThirdPartyTools.FileDetails();
 
             String returnedStr = temp.Version(FILEPATH);
-
+             
             Assert.IsNotNull(returnedStr);
         }
 
