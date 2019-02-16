@@ -12,39 +12,44 @@ namespace FileData
         {
             IFileDetails adapter = new FileDetailsAdapter();
             FileManager fm = new FileManager(adapter);
+            FileResults result = fm.ProcessArray(args);
+            PrintResult(args, result);
 
-            string[] array = new string[] { "-v", "c:/test.txt" };
-            FileResults result = fm.ProcessArray(array);
-            PrintResult(array, result);
+            //// Uncomment out if you wish to more tests run in console
 
-            array = new string[] { "--v", "c:/test.txt" };
-            result = fm.ProcessArray(array);
-            PrintResult(array, result);
+            //string[] array = new string[] { "-v", "c:/test.txt" };
+            //result = fm.ProcessArray(array);
+            //PrintResult(array, result);
 
-            array = new string[] { "–v", "c:/test.txt" };
-            result = fm.ProcessArray(array);
-            PrintResult(array, result);
+            //array = new string[] { "--v", "c:/test.txt" };
+            //result = fm.ProcessArray(array);
+            //PrintResult(array, result);
 
-            array = new string[] { "-s", "c:/test.txt" };
-            result = fm.ProcessArray(array);
-            PrintResult(array, result);
+            //array = new string[] { "–v", "c:/test.txt" };
+            //result = fm.ProcessArray(array);
+            //PrintResult(array, result);
 
-            array = new string[] { "--s", "c:/test.txt" };
-            result = fm.ProcessArray(array);
-            PrintResult(array, result);
+            //array = new string[] { "-s", "c:/test.txt" };
+            //result = fm.ProcessArray(array);
+            //PrintResult(array, result);
 
-            array = new string[] { "–s", "c:/test.txt" };
-            result = fm.ProcessArray(array);
-            PrintResult(array, result);
+            //array = new string[] { "--s", "c:/test.txt" };
+            //result = fm.ProcessArray(array);
+            //PrintResult(array, result);
 
-            array = new string[] { "–s" };
-            result = fm.ProcessArray(array);
-            PrintResult(array, result);
+            //array = new string[] { "–s", "c:/test.txt" };
+            //result = fm.ProcessArray(array);
+            //PrintResult(array, result);
 
-            array = new string[] { "–m", "c:/test.txt" };
-            result = fm.ProcessArray(array);
-            PrintResult(array, result);
+            //array = new string[] { "–s" };
+            //result = fm.ProcessArray(array);
+            //PrintResult(array, result);
 
+            //array = new string[] { "–m", "c:/test.txt" };
+            //result = fm.ProcessArray(array);
+            //PrintResult(array, result);
+
+            Console.WriteLine("** Press a key to continue **");
             Console.ReadKey();
         }
 
