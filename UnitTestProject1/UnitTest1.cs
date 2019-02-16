@@ -187,6 +187,21 @@ namespace UnitTestProject1
             Assert.IsTrue(result.Size > -1);
         }
 
+        [TestMethod]
+        public void Test_EmptyArray()
+        {
+            string[] array = new string[] {  };
+
+            IFileDetails adapter = new FileDetailsAdapter();
+            FileManager fm = new FileManager(adapter);
+
+            FileResults result = fm.ProcessArray(array);
+            Assert.IsTrue(result.Error);
+            Assert.IsTrue(result.ErrorMessage == ERROR_INVALID_COMMAND);
+        }
+
+
+
 
     }
 }
