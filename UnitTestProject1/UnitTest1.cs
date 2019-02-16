@@ -51,6 +51,16 @@ namespace UnitTestProject1
         }
 
         [TestMethod]
+        public void Test_AdaptorSizeCommand()
+        {
+            String[] array = new string[] { "-s", "c:/test.txt" };
+            FileDetailsAdapter adapter = new FileDetailsAdapter();
+            int size = adapter.GetSize(array[1]);
+
+            Assert.IsTrue(size != -1);
+        }
+
+        [TestMethod]
         public void Test_VersionCommand_V1()
         {
             string[] array = new string[] { "-v", "c:/test.txt" };
