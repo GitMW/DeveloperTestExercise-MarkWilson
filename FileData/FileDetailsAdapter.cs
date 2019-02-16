@@ -19,10 +19,15 @@ namespace FileData
             listOfVersionCommands.Add("-v");
             listOfVersionCommands.Add("--v");
             listOfVersionCommands.Add("–v");
+            listOfVersionCommands.Add("/v");
+            listOfVersionCommands.Add("--version");
+
 
             listOfSizeCommands.Add("-s");
             listOfSizeCommands.Add("--s");
             listOfSizeCommands.Add("–s");
+            listOfSizeCommands.Add("/s");
+            listOfSizeCommands.Add("--size");
         }
 
         FileDetails fd = new FileDetails();

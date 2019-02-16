@@ -86,8 +86,8 @@ namespace UnitTestProject1
             Assert.IsNotNull(result.Version);
         }
 
+        // Not sure if it was if this command was -v or –v so put in both.
         [TestMethod]
-
         public void Test_VersionCommand_V3()
         {
             string[] array = new string[] { "–v", "c:/test.txt" };
@@ -101,9 +101,35 @@ namespace UnitTestProject1
         }
 
         [TestMethod]
+        public void Test_VersionCommand_V4()
+        {
+            string[] array = new string[] { "/v", "c:/test.txt" };
+
+            IFileDetails adapter = new FileDetailsAdapter();
+            FileManager fm = new FileManager(adapter);
+
+            FileResults result = fm.ProcessArray(array);
+            Assert.IsFalse(result.Error);
+            Assert.IsNotNull(result.Version);
+        }
+
+        [TestMethod]
+        public void Test_VersionCommand_V5()
+        {
+            string[] array = new string[] { "--version", "c:/test.txt" };
+
+            IFileDetails adapter = new FileDetailsAdapter();
+            FileManager fm = new FileManager(adapter);
+
+            FileResults result = fm.ProcessArray(array);
+            Assert.IsFalse(result.Error);
+            Assert.IsNotNull(result.Version);
+        }
+
+        [TestMethod]
         public void Test_VersionCommand_UpperCase()
         {
-            string[] array = new string[] { "-V", "c:/test.txt" };
+            string[] array = new string[] { "--V", "c:/test.txt" };
 
             IFileDetails adapter = new FileDetailsAdapter();
             FileManager fm = new FileManager(adapter);
@@ -168,6 +194,32 @@ namespace UnitTestProject1
             FileResults result = fm.ProcessArray(array);
             Assert.IsFalse(result.Error);
             Assert.IsTrue(result.Size > -1);
+        }
+
+        [TestMethod]
+        public void Test_SizeCommand_S4()
+        {
+            string[] array = new string[] { "/s", "c:/test.txt" };
+
+            IFileDetails adapter = new FileDetailsAdapter();
+            FileManager fm = new FileManager(adapter);
+
+            FileResults result = fm.ProcessArray(array);
+            Assert.IsFalse(result.Error);
+            Assert.IsTrue(result.Size > -1);
+        }
+
+        [TestMethod]
+        public void Test_SizeCommand_S5()
+        {
+            string[] array = new string[] { "--size", "c:/test.txt" };
+
+            IFileDetails adapter = new FileDetailsAdapter();
+            FileManager fm = new FileManager(adapter);
+
+            FileResults result = fm.ProcessArray(array);
+            Assert.IsFalse(result.Error);
+            Assert.IsTrue(result.Size != -1);
         }
 
         [TestMethod]
