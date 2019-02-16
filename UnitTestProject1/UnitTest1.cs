@@ -2,7 +2,6 @@
 using FileData;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-
 namespace UnitTestProject1
 {
     [TestClass]
@@ -200,8 +199,17 @@ namespace UnitTestProject1
             Assert.IsTrue(result.ErrorMessage == ERROR_INVALID_COMMAND);
         }
 
+        [TestMethod]
+        public void Test_IncorectCommandMissingFile()
+        {
+            string[] array = new string[] { "bbb" };
 
+            IFileDetails adapter = new FileDetailsAdapter();
+            FileManager fm = new FileManager(adapter);
 
-
+            FileResults result = fm.ProcessArray(array);
+            Assert.IsTrue(result.Error);
+            Assert.IsTrue(result.ErrorMessage == ERROR_INVALID_COMMAND);
+        }
     }
 }

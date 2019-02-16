@@ -10,7 +10,6 @@ namespace FileData
     {
         private FileDetailsAdapter _adapter;
        
-
         public FileManager(IFileDetails adapter)
         {
             this._adapter = adapter as FileDetailsAdapter;
